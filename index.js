@@ -1,7 +1,9 @@
 const fs = require('fs')
 const argv = require('yargs').argv
 var filename = argv.filename
-fs.readFile('filename.txt', (err, data) => {
+const folderName = './file';
+
+fs.readFile(`${folderName}/filename.txt`, (err, data) => {
     if (err) {
         console.log(err) 
     } else {
@@ -11,12 +13,12 @@ fs.readFile('filename.txt', (err, data) => {
         } else {
             var fileNameArr = []
             fileNameArr.push(filename)
-            
-            fs.appendFile('filename.txt', fileNameArr.toString(), (err) => {
+
+            fs.appendFile(`${folderName}/filename.txt`, fileNameArr.toString(), (err) => {
                 if (err) {
                     console.log(err)
                 } else {
-                    fs.writeFile(filename, 'You are awesome', (err) => {
+                    fs.writeFile(`${folderName}/${filename}`, 'You are awesome', (err) => {
                         if (err) {
                             console.log(err)
                         } else {
