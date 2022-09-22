@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Order Management</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <h2 style="margin: 20px">Order Management</h2><hr>
+
+        <div class="container-fluid">
+            <div class="row">
+                
+                <form class="form-horizontal" method="post" action="/useritem">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="name">Name:</label>
+                      <div class="col-sm-3">
+                        <input type="name" class="form-control" name="name" placeholder="Enter name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="address">Address:</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" name="address" placeholder="Enter adress">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-3">
+                          <input type="email" class="form-control" name="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <% result.forEach((res) => { %>
+                        <div class="col-md-4">
+                            <img src="images/<%= res.image%>" height="200" /><br />
+                            <span class="panel-title"><%= res.name%> (<%= res.price%>)</span><br>
+                            <input type="radio" name="orderitem" value="<%= res.name%>">
+                        </div>
+                        <% }) %>
+                        
+                      </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                
+            </div>
+        </div>
+    </body>
+</html>
